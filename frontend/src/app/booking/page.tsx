@@ -72,10 +72,11 @@ const BookingPage = () => {
   const [availableSeats, setAvailableSeats] = useState<number>(0);
   const [bookedSeats, setBookedSeats] = useState<number>(0);
   const [bookedSeatNumbers, setBookedSeatNumbers] = useState<number[]>([]);
+  
 
   const fetchSeats = async () => {
     try {
-      const response = await axios.get<Seat[]>('http://localhost:5000/api/seats');
+      const response = await axios.get<Seat[]>('https://trainseatmanage.onrender.com/api/seats');
       const fetchedSeats = response.data;
 
       setSeats(fetchedSeats);
@@ -96,7 +97,7 @@ const BookingPage = () => {
       }
 
       await axios.post(
-        'http://localhost:5000/api/seats',
+        'https://trainseatmanage.onrender.com/api/seats',
         { seatCount },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -110,7 +111,7 @@ const BookingPage = () => {
 
   const handleReset = async () => {
     try {
-      await axios.post('http://localhost:5000/api/seats/reset');
+      await axios.post('https://trainseatmanage.onrender.com/api/seats/reset');
       alert('All seats have been reset!');
       fetchSeats(); // Refresh seat data after resetting
     } catch (error) {

@@ -12,7 +12,7 @@ const LoginPage = () => {
     const { email, password } = data;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axios.post('https://trainseatmanage.onrender.com/api/auth/login', { email, password });
       alert('Login successful!');
       localStorage.setItem('token', response.data.token); // Store JWT token
       router.push('/booking'); // Redirect to booking page
