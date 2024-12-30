@@ -1,5 +1,5 @@
 const express = require('express');
-const { getSeats, bookSeats } = require('../controllers/seatController');
+const { getSeats, bookSeats, resetSeats} = require('../controllers/seatController');
 const { authMiddleware } = require('../middleware/authMiddleware');
 
 const router = express.Router();
@@ -9,5 +9,7 @@ router.get('/', getSeats);
 
 // Route to book seats (protected)
 router.post('/', authMiddleware, bookSeats);
+
+router.post('/reset', resetSeats);
 
 module.exports = router;

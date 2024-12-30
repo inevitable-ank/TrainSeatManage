@@ -49,6 +49,21 @@ exports.getSeats = async (req, res) => {
   }
 };
 
+// Reset all seats
+exports.resetSeats = async (req, res) => {
+  try {
+    // Update all seats to set is_reserved to false
+    await db.query('UPDATE seats SET is_reserved = FALSE');
+    const updatedSeats = await db.query('SELECT * FROM seats ORDER BY row_number, seat_number');
+    console.log('All seats have been reset.');
+    res.json(updatedSeats.rows);
+  } catch (error) {
+    console.error('Error resetting seats:', error);
+    res.status(500).json({ error: 'Failed to reset seats' });
+  }
+};
+
+
 // Book seats
 exports.bookSeats = async (req, res) => {
   const { seatCount } = req.body;
