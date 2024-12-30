@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  @apply bg-gray-100 text-gray-900;
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.train-animation {
+  position: absolute;
+  top: 0;
+  animation: moveTrain 8s linear infinite;
+}
+
+@keyframes moveTrain {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
