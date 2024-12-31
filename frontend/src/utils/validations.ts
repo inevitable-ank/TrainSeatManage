@@ -19,7 +19,7 @@ export const seatBookingSchema = z.object({
 });
 
 // Validate function
-export const validateForm = (schema: z.ZodSchema, data: any) => {
+export const validateForm = (schema: z.ZodSchema, data: unknown): string[] | null => {
   try {
     schema.parse(data);
     return null; // Valid data

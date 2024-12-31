@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
-import img from '../../public/img/cartoon-steam-locomotive-with-carriage-on-white-background-children-s-toy-train-in-flat-style-children-s-illustration-of-railway-transport-for-fabric-design-wallpaper-greeting-cards-etc-vector.jpg';
+// import Image from 'next/image';
+// import img from '../../public/img/cartoon-steam-locomotive-with-carriage-on-white-background-children-s-toy-train-in-flat-style-children-s-illustration-of-railway-transport-for-fabric-design-wallpaper-greeting-cards-etc-vector.jpg';
 
 const HomePage = () => {
   return (
