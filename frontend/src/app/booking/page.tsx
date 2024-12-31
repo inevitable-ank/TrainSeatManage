@@ -106,6 +106,7 @@ const BookingPage = () => {
       alert('Seats booked successfully!');
       fetchSeats(); // Refresh seat data after booking
     } catch (error) {
+      console.log(error)
       alert('Error booking seats.');
     }
   };
@@ -116,6 +117,7 @@ const BookingPage = () => {
       alert('All seats have been reset!');
       fetchSeats(); // Refresh seat data after resetting
     } catch (error) {
+      console.log(error)
       alert('Error resetting seats.');
     }
   };
