@@ -76,7 +76,7 @@ const BookingPage = () => {
 
   const fetchSeats = async () => {
     try {
-      const response = await axios.get<Seat[]>('https://trainseatmanage.onrender.com/api/seats');
+      const response = await axios.get<Seat[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/seats`);
       const fetchedSeats = response.data;
 
       setSeats(fetchedSeats);
@@ -84,6 +84,7 @@ const BookingPage = () => {
       setBookedSeats(fetchedSeats.filter((seat) => seat.is_reserved).length);
       setBookedSeatNumbers(fetchedSeats.filter((seat) => seat.is_reserved).map((seat) => seat.id));
     } catch (error) {
+      console.log(error)
       alert('Error fetching seats.');
     }
   };
@@ -97,7 +98,7 @@ const BookingPage = () => {
       }
 
       await axios.post(
-        'https://trainseatmanage.onrender.com/api/seats',
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/seats`,
         { seatCount },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -111,7 +112,7 @@ const BookingPage = () => {
 
   const handleReset = async () => {
     try {
-      await axios.post('https://trainseatmanage.onrender.com/api/seats/reset');
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/seats/reset`);
       alert('All seats have been reset!');
       fetchSeats(); // Refresh seat data after resetting
     } catch (error) {

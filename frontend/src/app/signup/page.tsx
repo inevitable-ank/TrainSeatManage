@@ -12,10 +12,11 @@ const SignupPage = () => {
     const { username, email, password } = data;
 
     try {
-      await axios.post('https://trainseatmanage.onrender.com/api/auth/signup', { username, email, password });
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signup`, { username, email, password });
       alert('Signup successful!');
       router.push('/login'); // Redirect to login page
     } catch (error) {
+      console.error('Login failed:', error);
       alert('Signup failed. Please try again.');
     }
   };

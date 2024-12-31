@@ -12,11 +12,12 @@ const LoginPage = () => {
     const { email, password } = data;
 
     try {
-      const response = await axios.post('https://trainseatmanage.onrender.com/api/auth/login', { email, password });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`, { email, password });
       alert('Login successful!');
       localStorage.setItem('token', response.data.token); // Store JWT token
       router.push('/booking'); // Redirect to booking page
     } catch (error) {
+      console.error('Signup failed:', error);
       alert('Login failed. Please check your credentials.');
     }
   };
