@@ -8,7 +8,11 @@ const seatRoutes = require('./routes/seatRoutes');
 const app = express();
 
 // Middleware
-app.use(cors()); // Enable CORS
+app.use(cors({
+    origin: ['https://train-seat-manage.vercel.app'], // Frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    credentials: true, // Allow cookies if needed
+  })); // Enable CORS
 app.use(bodyParser.json()); // Parse JSON request bodies
 
 // Routes

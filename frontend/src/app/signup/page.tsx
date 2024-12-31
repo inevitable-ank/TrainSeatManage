@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import SignupForm from '@/components/SignupForm';
 import { SignupRequest } from '@/types/auth';
 import axios from 'axios';
+// import api from '@/utils/api';
 
 const SignupPage = () => {
   const router = useRouter();
